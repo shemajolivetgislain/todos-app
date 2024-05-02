@@ -1,4 +1,4 @@
-import ActionButton from "../components/inputs/ActionButton";
+import ActionButton from "../components/buttons/ActionButton";
 import { IoMoonOutline } from "react-icons/io5";
 
 const ActionBar = () => {
@@ -8,7 +8,9 @@ const ActionBar = () => {
         <IoMoonOutline className="text-whiteTheme-primaryColor" size={21} />
       </ActionButton>
       <ActionButton>
-        <p className="text-sm text-whiteTheme-primaryColor font-semibold">Eng</p>
+        <p className="text-sm text-whiteTheme-primaryColor font-semibold">
+          Eng
+        </p>
       </ActionButton>
     </div>
   );
