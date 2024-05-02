@@ -6,12 +6,12 @@ export default {
       colors: {
         whiteTheme: {
           primaryColor: "#5349C3",
-          backgroundColor: "#F8FBFF",
+          backgroundColor: "#FFFFFF",
           secondColor: "#ffffff",
-          accentBlue: "#7B8D9F",
-
+          accentColor: "#796B92",
+          greenAccent: "#EFF5F4",
           accentDark: "#435755",
-          lightAccent: "#E7F2FF",
+          lightAccent: "#F6F8FA",
           textColor: "#000000",
         },
         darkTheme: {

@@ -3,8 +3,27 @@
 @import "tailwindcss/utilities";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,600");
-/* CSS url as a string */
 
 body {
   font-family: "Montserrat", sans-serif;
+}
+
+.custom-tooltip::before {
+  content: attr(title);
+  position: absolute;
+  background-color: #5349c3;
+  color: white;
+  padding: 4px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-left: 28px;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.custom-tooltip:hover::before {
+  visibility: visible;
+  opacity: 1;
 }
