@@ -6,9 +6,11 @@ import { MdOutlineDeleteSweep } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { useDeleteTodoMutation, useLazyGetAllToDosQuery } from "../../app/api";
 import { toast } from "react-toastify";
+import EditTaskModal from "../../pages/Home/EditTaskModal";
 
 const TaskCard = ({ title, taskNumber, detail, className, onClick }) => {
   const [openAction, setOpenAction] = useState(false);
+  const [openEditModal, setOpenEditModal] = useState(false);
   const { singleTodo } = useSelector((state) => state.todos);
 
   const toggleAction = () => {
@@ -30,6 +32,11 @@ const TaskCard = ({ title, taskNumber, detail, className, onClick }) => {
   // Handle Delete function
   const handleDelete = () => {
     deleteTodo({ id: singleTodo?.id });
+  };
+  // Handle Edit function
+  const handleEdit = () => {
+    setOpenEditModal(true);
+    setOpenAction(false);
   };
   // Fetch all todos again
   useEffect(() => {
@@ -78,7 +85,10 @@ const TaskCard = ({ title, taskNumber, detail, className, onClick }) => {
         </main>
         {openAction && (
           <span className="mt-7 p-0 m-0  self-end fixed flex flex-col gap-2 rounded-md shadow-sm shadow-sky-200 py-4 px-6 bg-whiteTheme-backgroundColor">
-            <div className="flex items-center gap-3 cursor-pointer">
+            <div
+              className="flex items-center gap-3 cursor-pointer"
+              onClick={handleEdit}
+            >
               <BiMessageSquareEdit
                 size={20}
                 className="text-whiteTheme-primaryColor"
@@ -91,11 +101,20 @@ const TaskCard = ({ title, taskNumber, detail, className, onClick }) => {
               onClick={handleDelete}
             >
               <MdOutlineDeleteSweep size={20} className="text-red-700" />
-              <p className="text-red-700">Delete</p>
+              <p className="text-red-700">
+                {isDeleteLoading ? "Deleting ..." : "Delete"}
+              </p>
             </div>
           </span>
         )}
       </div>
+      {openEditModal && (
+        <EditTaskModal
+          closeModal={() => {
+            setOpenEditModal(false);
+          }}
+        />
+      )}
     </>
   );
 };
