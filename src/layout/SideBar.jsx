@@ -6,7 +6,7 @@ const SideBar = () => {
   const { pathname } = useLocation();
 
   return (
-    <section className="min-h-screen flex flex-col gap-16 h-screen w-[10vh]  shadow-sm ">
+    <section className="min-h-screen flex flex-col gap-16 h-screen w-[10vh]  shadow-sm bg-whiteTheme-backgroundColor">
       <header className="p-3">
         <img src={navLinks.logo} alt="Logo" className="w-10 h-10" />
       </header>

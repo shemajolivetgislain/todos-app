@@ -16,22 +16,35 @@ const TaskSection = () => {
     getAllToDos();
   }, [getAllToDos]);
 
-  console.log(todosData);
+  console.log(todosData?.todos);
   return (
     <section className="w-full">
-      <main className="flex grow items-center gap-3">
-        <TaskCard
-          title="Todos"
-          taskNumber={1}
-          detail="Lorem ipsum dolor sit amet consectetur adipiscing elit nascetur taciti nibh"
-          className="text-whiteTheme-primaryColor bg-red-100"
-        />
-        <TaskCard
-          title="In Progress"
-          taskNumber={1}
-          detail="Lorem ipsum dolor sit amet consectetur adipiscing elit nascetur taciti nibh"
-          className="text-whiteTheme-primaryColor bg-blue-100"
-        />
+      <main className="grid grid-cols-5 items-center gap-8">
+        {isTodosLoading ? (
+          <p>Loading ....</p>
+        ) : isTodosSuccess ? (
+          <>
+            {todosData?.todos?.length > 0 ? (
+              todosData?.todos?.map((todo, index) => (
+                <TaskCard
+                  title={todo.completed === true ? "Completed" : "To Do"}
+                  taskNumber={index + 1}
+                  detail={todo.todo}
+                  className={todo.completed === true ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"}
+                  key={todo?.id}
+                />
+              ))
+            ) : (
+              <span>
+                <p>You have an empty to dos</p>
+              </span>
+            )}
+          </>
+        ) : isTodosError ? (
+          <span>
+            <p>{"Failed to load your tasks"}</p>
+          </span>
+        ) : null}
       </main>
     </section>
   );

@@ -6,6 +6,7 @@
 
 body {
   font-family: "Montserrat", sans-serif;
+  background-color: #F6F8FA;
 }
 
 .custom-tooltip::before {
