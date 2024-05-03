@@ -1,24 +1,35 @@
-export const todosPathLink = {
-  links: [
-    {
-      title: "All Tasks",
-      path: "all",
-      size: 40,
-    },
-    {
-      title: "To do",
-      path: "todo",
-      size: 4,
-    },
-    {
-      title: "In progress",
-      path: "inprogress",
-      size: 6,
-    },
-    {
-      title: "Completed",
-      path: "completed",
-      size: 10,
-    },
-  ],
+import { useSelector } from "react-redux";
+
+const TodosLink = () => {
+  const { allTodosSize, incompleteTodosSize, completeTodosSize } = useSelector(
+    (state) => state.todos
+  );
+
+  const totalTodos = allTodosSize;
+  const incompleteTodos = incompleteTodosSize;
+  const completeTodos = completeTodosSize;
+
+  const todosPathLink = {
+    links: [
+      {
+        title: "All Tasks",
+        path: "all",
+        size: totalTodos,
+      },
+      {
+        title: "To do",
+        path: "todo",
+        size: incompleteTodos,
+      },
+      {
+        title: "Completed",
+        path: "completed",
+        size: completeTodos,
+      },
+    ],
+  };
+
+  return todosPathLink;
 };
+
+export default TodosLink;

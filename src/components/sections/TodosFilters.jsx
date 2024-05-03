@@ -1,20 +1,76 @@
-import { useState } from "react";
-import { todosPathLink } from "../../constants/todosPath";
+import { useEffect, useState } from "react";
+import TodosLink from "../../constants/todosPath";
 import Button from "../buttons";
 import { IoMdAdd } from "react-icons/io";
 import AddNewTaskModal from "../../pages/Home/AddNewTaskModal";
+import TaskSection from "./TaskSection";
+import { useLazyGetAllToDosQuery } from "../../app/api";
+import {
+  setTodos,
+  setAllTodos,
+  setCompleteTodos,
+  setImcompleteTodos,
+} from "../../app/features/todoSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const TodosFilters = () => {
+  const dispatch = useDispatch();
+
+  // Path links
+  const todosPathLink = TodosLink();
   const [activeTab, setActiveTab] = useState("all");
   const [showModal, setShowModal] = useState(false);
+  const { todos } = useSelector((state) => state.todos);
+
+  const [
+    getAllToDos,
+    { isLoading: isTodosLoading, isSuccess: isTodosSuccess, data: todosData },
+  ] = useLazyGetAllToDosQuery();
+  useEffect(() => {
+    getAllToDos();
+  }, [getAllToDos]);
+
+  // SAVING DATA INTO GLOBAL STATE
+  useEffect(() => {
+    if (isTodosSuccess) {
+      dispatch(setTodos(todosData?.todos));
+      dispatch(setAllTodos(todosData?.todos?.length));
+      dispatch(
+        setCompleteTodos(
+          todosData?.todos?.filter((todo) => todo.completed === true).length
+        )
+      );
+      dispatch(
+        setImcompleteTodos(
+          todosData?.todos?.filter((todo) => todo.completed === false).length
+        )
+      );
+    }
+  }, [isTodosSuccess, todosData, dispatch]);
 
   //   Handling changing tabs
   const handleTabClick = (tab) => {
     setActiveTab(tab.path);
+    if (tab.path === "all") {
+      dispatch(setTodos(todosData?.todos));
+      dispatch(setAllTodos(todosData?.todos?.length));
+    } else if (tab.path === "completed") {
+      const filtered = todosData?.todos?.filter(
+        (todo) => todo.completed === true
+      );
+
+      dispatch(setTodos(filtered));
+    } else if (tab.path === "todo") {
+      const filtered = todosData?.todos?.filter(
+        (todo) => todo.completed === false
+      );
+      dispatch(setTodos(filtered));
+    }
   };
+
   return (
-    <>
-      <section className="w-full h-20 rounded-md bg-whiteTheme-backgroundColor shadow-sm shadow-purple-100 px-7 flex justify-between items-center">
+    <section className="w-full flex flex-col gap-4">
+      <div className="w-full h-20 rounded-md bg-whiteTheme-backgroundColor shadow-sm shadow-purple-100 px-7 flex justify-between items-center">
         <ul className=" flex items-center gap-9 pt-3">
           {todosPathLink.links.map((tab, index) => (
             <li
@@ -44,9 +100,20 @@ const TodosFilters = () => {
           }
           onClick={() => setShowModal(true)}
         />
-      </section>
+      </div>
+      {isTodosLoading ? (
+        <span>
+          <p>Loading .....</p>
+        </span>
+      ) : isTodosSuccess ? (
+        <TaskSection data={todos} />
+      ) : (
+        <span>
+          <p>Failed to load todos</p>
+        </span>
+      )}
       {showModal && <AddNewTaskModal closeModal={() => setShowModal(false)} />}
-    </>
+    </section>
   );
 };
 
