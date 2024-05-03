@@ -7,6 +7,8 @@ import { useUpdateTodoMutation } from "../../app/api";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+// import ButtonLoader from "../../components/loader/Loaders";
+
 const EditTaskModal = ({ closeModal }) => {
   const { singleTodo } = useSelector((state) => state.todos);
   const {
