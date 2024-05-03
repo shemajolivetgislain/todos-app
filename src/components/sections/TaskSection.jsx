@@ -1,7 +1,14 @@
+import { useDispatch } from "react-redux";
+import { setSingleTodo } from "../../app/features/todoSlice";
 import TaskCard from "../cards/TaskCard";
 import PropTypes from "prop-types";
 
 const TaskSection = ({ data }) => {
+  const dispatch = useDispatch();
+  const handleClick = (data) => {
+    dispatch(setSingleTodo(data));
+    console.log("clicked", data);
+  };
   return (
     <section className="w-full  mb-8">
       <main className="grid grid-cols-5 items-center gap-8">
@@ -17,6 +24,7 @@ const TaskSection = ({ data }) => {
                   : "bg-yellow-100 text-yellow-700"
               }
               key={todo?.id}
+              onClick={() => handleClick(todo)}
             />
           ))}
         {data?.length === 0 && (
