@@ -47,7 +47,7 @@ const AddNewTaskModal = ({ closeModal }) => {
       });
       closeModal();
     }
-  }, [closeModal, isCreatingTodoError, isCreatingTodoSuccess]);
+  }, [closeModal, createTodoData?.todo, isCreatingTodoError, isCreatingTodoSuccess]);
   return (
     <Modal
       title={"Add new task"}

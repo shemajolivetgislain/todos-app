@@ -25,7 +25,7 @@ function Modal({ title, toggleFunction, children, className }) {
           </button>
         </div>
         <hr />
-        <div className="px-4 pr-16 h-full overflow-y-auto">{children}</div>
+        <div className="px-4 h-full overflow-y-auto">{children}</div>
       </div>
     </main>
   );
