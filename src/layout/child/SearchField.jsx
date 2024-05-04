@@ -3,7 +3,7 @@ import { IoIosSearch } from "react-icons/io";
 
 const SearchField = () => {
   return (
-    <div className="w-[30%]">
+    <div className="w-[30%] max-md:w-[35%] max-sm:w-[60%]">
       <div className="relative">
         {" "}
         <Input

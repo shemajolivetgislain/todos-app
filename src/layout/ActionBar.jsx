@@ -5,16 +5,13 @@ import { CiLight } from "react-icons/ci";
 
 const ActionBar = () => {
   const [darkMode, setDarkMode] = useState(() => {
-    // Retrieve theme mode from local storage, default to light mode
     const savedMode = localStorage.getItem("theme");
     return savedMode === "dark";
   });
 
-  // Function to toggle theme mode and save to local storage
   const toggleThemeMode = () => {
     const newMode = !darkMode;
     setDarkMode(newMode);
-    // Save theme mode to local storage
     localStorage.setItem("theme", newMode ? "dark" : "light");
   };
 
@@ -25,6 +22,8 @@ const ActionBar = () => {
       document.documentElement.classList.remove("dark");
     }
   }, [darkMode]);
+
+  
   return (
     <div className="flex gap-2">
       <ActionButton onClick={toggleThemeMode}>

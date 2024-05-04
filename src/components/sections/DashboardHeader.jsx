@@ -17,8 +17,8 @@ const DashboardHeader = () => {
 
   return (
     <section className="w-full ">
-      <header className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold text-whiteTheme-primaryColor">
+      <header className="flex items-center justify-between max-sm:flex-col max-sm:items-start max-sm:gap-2">
+        <h1 className="text-3xl max-sm:text-xl font-bold text-whiteTheme-primaryColor">
           Todos App Site
         </h1>
         {/* Display current time and date */}

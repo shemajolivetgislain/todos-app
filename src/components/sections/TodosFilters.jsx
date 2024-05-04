@@ -70,19 +70,19 @@ const TodosFilters = () => {
 
   return (
     <section className="w-full flex flex-col gap-4">
-      <div className="w-full h-20 rounded-md bg-whiteTheme-backgroundColor shadow-sm shadow-purple-100 px-7 flex justify-between items-center dark:bg-darkTheme-primaryColor dark:shadow-darkTheme-borderColor ">
-        <ul className=" flex items-center gap-9 pt-3">
+      <div className="w-full h-20 rounded-md bg-whiteTheme-backgroundColor shadow-sm shadow-purple-100 px-7 max-sm:px-3 flex justify-between items-center dark:bg-darkTheme-primaryColor dark:shadow-darkTheme-borderColor ">
+        <ul className=" flex items-center gap-9 pt-3 max-md:gap-4 max-sm:gap-2">
           {todosPathLink.links.map((tab, index) => (
             <li
               key={index}
               className={`${
                 tab.path === activeTab &&
                 "border-b-[5px] border-whiteTheme-primaryColor text-whiteTheme-primaryColor font-semibold"
-              } py-5 cursor-pointer text-whiteTheme-accentColor`}
+              } py-5 cursor-pointer text-whiteTheme-accentColor max-sm:text-sm`}
               onClick={() => handleTabClick(tab)}
             >
               {tab.title}{" "}
-              <span className="ml-1 p-2 bg-whiteTheme-lightAccent rounded-md dark:bg-darkTheme-secondColor dark:text-darkTheme-textColor">
+              <span className="ml-1 p-2 max-md:p-1 max-sm:text-sm bg-whiteTheme-lightAccent rounded-md dark:bg-darkTheme-secondColor dark:text-darkTheme-textColor ">
                 {tab.size}
               </span>
             </li>
@@ -90,12 +90,12 @@ const TodosFilters = () => {
         </ul>
         <Button
           className={
-            "!border-[1px] !border-whiteTheme-accentColor !bg-white !text-whiteTheme-accentColor hover:!bg-whiteTheme-primaryColor hover:!text-whiteTheme-secondColor dark:!bg-darkTheme-secondColor dark:!text-darkTheme-textColor dark:hover:!bg-darkTheme-primaryColor dark:hover:!text-darkTheme-accentColor"
+            "!border-[1px] !border-whiteTheme-accentColor !bg-white !text-whiteTheme-accentColor hover:!bg-whiteTheme-primaryColor hover:!text-whiteTheme-secondColor dark:!bg-darkTheme-secondColor dark:!text-darkTheme-textColor dark:hover:!bg-darkTheme-primaryColor dark:hover:!text-darkTheme-accentColor max-md:!px-2 max-sm:hidden"
           }
           value={
             <span className="flex gap-2 items-center">
               <IoMdAdd />
-              <p>New Task</p>
+              <p className="max-md:hidden">New Task</p>
             </span>
           }
           onClick={() => setShowModal(true)}

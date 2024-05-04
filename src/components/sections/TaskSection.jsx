@@ -7,11 +7,10 @@ const TaskSection = ({ data }) => {
   const dispatch = useDispatch();
   const handleClick = (data) => {
     dispatch(setSingleTodo(data));
-    console.log("clicked", data);
   };
   return (
     <section className="w-full  mb-8">
-      <main className="grid grid-cols-5 items-center gap-8">
+      <main className="grid grid-cols-5 items-center gap-8 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
         {data?.length > 0 &&
           data?.map((todo, index) => (
             <TaskCard
