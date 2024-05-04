@@ -1,14 +1,47 @@
+import { useEffect, useState } from "react";
 import ActionButton from "../components/buttons/ActionButton";
 import { IoMoonOutline } from "react-icons/io5";
+import { CiLight } from "react-icons/ci";
 
 const ActionBar = () => {
+  const [darkMode, setDarkMode] = useState(() => {
+    // Retrieve theme mode from local storage, default to light mode
+    const savedMode = localStorage.getItem("theme");
+    return savedMode === "dark";
+  });
+
+  // Function to toggle theme mode and save to local storage
+  const toggleThemeMode = () => {
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    // Save theme mode to local storage
+    localStorage.setItem("theme", newMode ? "dark" : "light");
+  };
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
   return (
     <div className="flex gap-2">
-      <ActionButton>
-        <IoMoonOutline className="text-whiteTheme-primaryColor" size={21} />
+      <ActionButton onClick={toggleThemeMode}>
+        {darkMode ? (
+          <CiLight
+            className="text-whiteTheme-primaryColor dark:text-darkTheme-textColor"
+            size={21}
+          />
+        ) : (
+          <IoMoonOutline
+            className="text-whiteTheme-primaryColor dark:text-darkTheme-textColor"
+            size={21}
+          />
+        )}
       </ActionButton>
       <ActionButton>
-        <p className="text-sm text-whiteTheme-primaryColor font-semibold">
+        <p className="text-sm text-whiteTheme-primaryColor font-semibold dark:text-darkTheme-textColor">
           Eng
         </p>
       </ActionButton>

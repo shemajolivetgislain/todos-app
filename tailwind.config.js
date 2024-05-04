@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -15,14 +16,14 @@ export default {
           textColor: "#000000",
         },
         darkTheme: {
-          primaryColor: "#0F172A",
+          primaryColor: "#1A1732",
           borderColor: "#283249",
           textColor: "#ffffff",
-          secondColor: "#8FCFFF",
+          secondColor: "#4E4A7B",
           greenAccent: "#EFF5F4",
           accentDark: "#435755",
           lightAccent: "#E7F2FF",
-          backgroundColor: "#212B42",
+          backgroundColor: "#272543",
         },
       },
       fontFamily: {

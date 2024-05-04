@@ -7,7 +7,7 @@ const SearchField = () => {
       <div className="relative">
         {" "}
         <Input
-          className={`!border-none !bg-whiteTheme-lightAccent !py-2`}
+          className={`!border-none !bg-whiteTheme-lightAccent !py-2 dark:!bg-darkTheme-borderColor`}
           placeholder={"Search"}
         />
         <IoIosSearch

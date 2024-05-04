@@ -60,14 +60,14 @@ const TaskCard = ({ title, taskNumber, detail, className, onClick }) => {
 
   return (
     <>
-      <div className=" flex flex-col gap-3 rounded-md shadow-sm shadow-sky-100 border-2 py-8 px-6 h-60 bg-whiteTheme-backgroundColor">
+      <div className=" flex flex-col gap-3 rounded-md shadow-sm shadow-sky-100 border-2 py-8 px-6 h-60 bg-whiteTheme-backgroundColor dark:bg-darkTheme-primaryColor dark:border-darkTheme-borderColor dark:shadow-darkTheme-secondColor">
         <header className="flex items-center justify-between w-full">
           <h1 className={`${className} p-2 font-medium text-sm rounded-md`}>
             {title}
           </h1>
           <HiOutlineDotsVertical
             size={20}
-            className="relative "
+            className="relative dark:text-darkTheme-textColor"
             onClick={() => {
               toggleAction();
               onClick();
@@ -79,12 +79,12 @@ const TaskCard = ({ title, taskNumber, detail, className, onClick }) => {
             Task <span>{taskNumber}</span>
           </h1>
           <hr />
-          <p className="text-whiteTheme-accentColor font-normal text-sm">
+          <p className="text-whiteTheme-accentColor font-normal text-sm dark:text-darkTheme-textColor">
             {detail}
           </p>
         </main>
         {openAction && (
-          <span className="mt-7 p-0 m-0  self-end fixed flex flex-col gap-2 rounded-md shadow-sm shadow-sky-200 py-4 px-6 bg-whiteTheme-backgroundColor">
+          <span className="mt-7 p-0 m-0 self-end fixed flex flex-col gap-2 rounded-md shadow-sm shadow-sky-200 py-4 px-6 bg-whiteTheme-backgroundColor dark:bg-darkTheme-secondColor dark:border-darkTheme-borderColor dark:shadow-darkTheme-secondColor">
             <div
               className="flex items-center gap-3 cursor-pointer"
               onClick={handleEdit}

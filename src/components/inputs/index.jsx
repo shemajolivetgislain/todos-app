@@ -22,7 +22,7 @@ const Input = forwardRef(
           placeholder={placeholder}
           defaultValue={defaultValue}
           onChange={onChange}
-          className={`${className} border-[1px] border-whiteTheme-primaryColor rounded-md p-3 w-full focus:outline-none focus:border-2 focus:border-whiteTheme-primaryColor transition:all duration-100 ease-out-in`}
+          className={`${className} border-[1px] border-whiteTheme-primaryColor rounded-md p-3 w-full focus:outline-none focus:border-2 focus:border-whiteTheme-primaryColor transition:all duration-100 ease-out-in dark:bg-darkTheme-borderColor dark:text-darkTheme-textColor`}
         />
       </>
     );

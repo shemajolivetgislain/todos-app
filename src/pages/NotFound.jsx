@@ -2,7 +2,7 @@ import NotFoundImage from "../assets/images/404page.svg";
 
 const NotFound = () => {
   return (
-    <div className="flex flex-col items-center justify-center mt-6">
+    <div className="flex flex-col items-center justify-center pt-2 dark:bg-darkTheme-backgroundColor h-screen w-full">
       <h1 className="text-whiteTheme-primaryColor font-semibold text-2xl">
         Page you are looking for, not found!
       </h1>

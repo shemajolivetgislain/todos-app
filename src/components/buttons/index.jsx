@@ -11,7 +11,7 @@ const Button = forwardRef(
           ref={ref}
           type={type || "submit"}
           onClick={onClick}
-          className={`${className} bg-whiteTheme-primaryColor text-whiteTheme-secondColor w-fit flex items-center rounded-md px-6 max-md:px-8 py-2 max-md:py-2 font-medium hover:bg-whiteTheme-subPrimaryColor `}
+          className={`${className} bg-whiteTheme-primaryColor text-whiteTheme-secondColor w-fit flex items-center rounded-md px-6 max-md:px-8 py-2 max-md:py-2 font-medium hover:bg-whiteTheme-subPrimaryColor dark:bg-darkTheme-secondColor`}
         >
           {value}
         </motion.button>

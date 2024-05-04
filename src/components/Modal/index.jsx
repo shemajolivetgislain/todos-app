@@ -10,7 +10,7 @@ function Modal({ title, toggleFunction, children, className }) {
       <div className="absolute inset-0 bg-gray-600 opacity-80"></div>
       {/* Modal card with white background */}
       <div
-        className={`flex flex-col bg-white border  z-50 w-[40%]  h-1/2  rounded-md ${className}`}
+        className={`flex flex-col bg-white border  z-50 w-[40%]  h-1/2  rounded-md ${className} dark:bg-darkTheme-primaryColor`}
       >
         <div className="flex justify-between px-6 py-3 items-center font-semibold text-xl">
           <div className="flex flex-col ">
@@ -19,7 +19,7 @@ function Modal({ title, toggleFunction, children, className }) {
             </p>
           </div>
           <button className="p-1 " onClick={toggleFunction}>
-            <p className="text-whiteTheme-accentDark flex items-center">
+            <p className="text-whiteTheme-accentDark flex items-center dark:text-darkTheme-textColor">
               <IoIosCloseCircleOutline size={30} />
             </p>
           </button>

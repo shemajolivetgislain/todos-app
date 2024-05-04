@@ -6,7 +6,7 @@ const SideBar = () => {
   const { pathname } = useLocation();
 
   return (
-    <section className="min-h-screen flex flex-col gap-16 h-screen w-[10vh]  shadow-sm bg-whiteTheme-backgroundColor">
+    <section className="min-h-screen flex flex-col gap-16 h-screen w-[10vh]  shadow-sm bg-whiteTheme-backgroundColor dark:bg-darkTheme-primaryColor dark:border-r-2 dark:border-darkTheme-borderColor">
       <header className="p-3">
         <img src={navLinks.logo} alt="Logo" className="w-10 h-10" />
       </header>
@@ -18,7 +18,7 @@ const SideBar = () => {
                 key={index}
                 className={`${
                   pathname === link.path
-                    ? "bg-purple-50 border-l-4 border-whiteTheme-primaryColor text-whiteTheme-primaryColor"
+                    ? "bg-purple-50 border-l-4 border-whiteTheme-primaryColor text-whiteTheme-primaryColor dark:bg-purple-950 dark:text-darkTheme-textColor"
                     : "text-whiteTheme-accentColor"
                 } p-3 `}
               >

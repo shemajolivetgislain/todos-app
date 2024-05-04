@@ -47,7 +47,12 @@ const AddNewTaskModal = ({ closeModal }) => {
       });
       closeModal();
     }
-  }, [closeModal, createTodoData?.todo, isCreatingTodoError, isCreatingTodoSuccess]);
+  }, [
+    closeModal,
+    createTodoData?.todo,
+    isCreatingTodoError,
+    isCreatingTodoSuccess,
+  ]);
   return (
     <Modal
       title={"Add new task"}
@@ -82,7 +87,7 @@ const AddNewTaskModal = ({ closeModal }) => {
             value={isCreatingTodoLoading ? "Adding ..." : "Add todo"}
           />
           <Button
-            className="!bg-white !border-2 !border-red-700 !text-red-700 !py-1 !text-lg hover:!bg-red-700 hover:!text-whiteTheme-secondColor"
+            className="!bg-white !border-2 !border-red-700 !text-red-700 !py-1 !text-lg hover:!bg-red-700 hover:!text-whiteTheme-secondColor dark:!bg-red-900 dark:!text-darkTheme-textColor"
             onClick={closeModal}
             value={"cancel"}
           />

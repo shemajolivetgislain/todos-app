@@ -70,7 +70,7 @@ const TodosFilters = () => {
 
   return (
     <section className="w-full flex flex-col gap-4">
-      <div className="w-full h-20 rounded-md bg-whiteTheme-backgroundColor shadow-sm shadow-purple-100 px-7 flex justify-between items-center">
+      <div className="w-full h-20 rounded-md bg-whiteTheme-backgroundColor shadow-sm shadow-purple-100 px-7 flex justify-between items-center dark:bg-darkTheme-primaryColor dark:shadow-darkTheme-borderColor ">
         <ul className=" flex items-center gap-9 pt-3">
           {todosPathLink.links.map((tab, index) => (
             <li
@@ -82,7 +82,7 @@ const TodosFilters = () => {
               onClick={() => handleTabClick(tab)}
             >
               {tab.title}{" "}
-              <span className="ml-1 p-2 bg-whiteTheme-lightAccent rounded-md">
+              <span className="ml-1 p-2 bg-whiteTheme-lightAccent rounded-md dark:bg-darkTheme-secondColor dark:text-darkTheme-textColor">
                 {tab.size}
               </span>
             </li>
@@ -90,7 +90,7 @@ const TodosFilters = () => {
         </ul>
         <Button
           className={
-            "!border-[1px] !border-whiteTheme-accentColor !bg-white !text-whiteTheme-accentColor hover:!bg-whiteTheme-primaryColor hover:!text-whiteTheme-secondColor"
+            "!border-[1px] !border-whiteTheme-accentColor !bg-white !text-whiteTheme-accentColor hover:!bg-whiteTheme-primaryColor hover:!text-whiteTheme-secondColor dark:!bg-darkTheme-secondColor dark:!text-darkTheme-textColor dark:hover:!bg-darkTheme-primaryColor dark:hover:!text-darkTheme-accentColor"
           }
           value={
             <span className="flex gap-2 items-center">
