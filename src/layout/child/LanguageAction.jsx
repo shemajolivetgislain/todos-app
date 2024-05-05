@@ -11,7 +11,7 @@ const LanguageAction = () => {
   };
 
   return (
-    <div className="py-2 px-6 flex flex-col gap-2 absolute right-3 mt-32 bg-whiteTheme-backgroundColor shadow-sm border-2 rounded-md ">
+    <div className="py-2 px-6 flex flex-col gap-2 absolute right-3 mt-32 bg-whiteTheme-backgroundColor shadow-sm border-2 rounded-md dark:bg-darkTheme-secondColor dark:text-darkTheme-textColor">
       <span
         className="cursor-pointer"
         onClick={() => {
