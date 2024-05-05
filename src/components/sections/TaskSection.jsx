@@ -2,19 +2,23 @@ import { useDispatch } from "react-redux";
 import { setSingleTodo } from "../../app/features/todoSlice";
 import TaskCard from "../cards/TaskCard";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
 const TaskSection = ({ data }) => {
   const dispatch = useDispatch();
   const handleClick = (data) => {
     dispatch(setSingleTodo(data));
   };
+  const { t } = useTranslation();
   return (
     <section className="w-full  mb-8">
       <main className="grid grid-cols-5 items-center gap-8 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
         {data?.length > 0 &&
           data?.map((todo, index) => (
             <TaskCard
-              title={todo.completed === true ? "Completed" : "To Do"}
+              title={
+                todo.completed === true ? t("CompletedTasks") : t("ToDoTasks")
+              }
               taskNumber={index + 1}
               detail={todo.todo}
               className={

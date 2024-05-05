@@ -7,12 +7,13 @@ import { useSelector } from "react-redux";
 import { useDeleteTodoMutation, useLazyGetAllToDosQuery } from "../../app/api";
 import { toast } from "react-toastify";
 import EditTaskModal from "../../pages/Home/EditTaskModal";
+import { useTranslation } from "react-i18next";
 
 const TaskCard = ({ title, taskNumber, detail, className, onClick }) => {
   const [openAction, setOpenAction] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
   const { singleTodo } = useSelector((state) => state.todos);
-
+  const { t } = useTranslation();
   const toggleAction = () => {
     setOpenAction(!openAction);
   };
@@ -76,7 +77,7 @@ const TaskCard = ({ title, taskNumber, detail, className, onClick }) => {
         </header>
         <main className="flex flex-col gap-3 ">
           <h1 className="text-whiteTheme-primaryColor font-semibold text-xl">
-            Task <span>{taskNumber}</span>
+            {t("taskCardTitle")} <span>{taskNumber}</span>
           </h1>
           <hr />
           <p className="text-whiteTheme-accentColor font-normal text-sm dark:text-darkTheme-textColor">
@@ -91,18 +92,23 @@ const TaskCard = ({ title, taskNumber, detail, className, onClick }) => {
             >
               <BiMessageSquareEdit
                 size={20}
-                className="text-whiteTheme-primaryColor"
+                className="text-whiteTheme-primaryColor dark:text-purple-100"
               />
-              <p className="text-whiteTheme-primaryColor">Edit</p>
+              <p className="text-whiteTheme-primaryColor dark:text-purple-100">
+                {t("Edit")}
+              </p>
             </div>
             <hr />
             <div
               className="flex items-center gap-3 cursor-pointer"
               onClick={handleDelete}
             >
-              <MdOutlineDeleteSweep size={20} className="text-red-700" />
-              <p className="text-red-700">
-                {isDeleteLoading ? "Deleting ..." : "Delete"}
+              <MdOutlineDeleteSweep
+                size={20}
+                className="text-red-700 dark:text-red-200"
+              />
+              <p className="text-red-700 dark:text-red-200">
+                {isDeleteLoading ? "Deleting ..." : t("Delete")}
               </p>
             </div>
           </span>

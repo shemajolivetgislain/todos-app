@@ -1,0 +1,20 @@
+{
+  "title": "Todos App Site",
+  "languageType": "EN",
+  "taskAddTitle": "New Task",
+  "taskCardTitle": "Task",
+  "searchPlaceholder": "Search",
+  "AllTasks": "All",
+  "CompletedTasks": "Completed",
+  "ToDoTasks": "To Do",
+  "AddTaskButton": "Add task",
+  "EditTaskButton": "Edit task",
+  "AddNewtaskTitle": "Ajouter une nouvelle tâche",
+  "AddTaskPlaceholder": "Add new task",
+  "EditTask": "Edit Task",
+  "DeleteTask": "Delete Task",
+  "Cancel": "Cancel",
+  "eDITaskTitle": "Edit task",
+  "Edit":"Edit",
+  "Delete":"Delete"
+}

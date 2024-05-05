@@ -12,9 +12,11 @@ import {
   setImcompleteTodos,
 } from "../../app/features/todoSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const TodosFilters = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   // Path links
   const todosPathLink = TodosLink();
@@ -95,7 +97,7 @@ const TodosFilters = () => {
           value={
             <span className="flex gap-2 items-center">
               <IoMdAdd />
-              <p className="max-md:hidden">New Task</p>
+              <p className="max-md:hidden"> {t("taskAddTitle")}</p>
             </span>
           }
           onClick={() => setShowModal(true)}

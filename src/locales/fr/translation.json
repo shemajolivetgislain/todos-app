@@ -1,0 +1,20 @@
+{
+  "title": "Site de l'application Todos",
+  "languageType": "Fr",
+  "taskAddTitle": "Nouvelle tâche",
+  "taskCardTitle": "tâche",
+  "searchPlaceholder": "Rechercher",
+  "AllTasks": "Toute",
+  "CompletedTasks": "Complété",
+  "ToDoTasks": "Faire",
+  "AddTaskButton": "Ajouter une tâche",
+  "EditTaskButton": "Modifier la tâche",
+  "AddNewtaskTitle": "Ajouter une nouvelle tâche",
+  "AddTaskPlaceholder": "Ajouter une tâche",
+  "EditTask": "Edit Task",
+  "DeleteTask": "Modifier la tâche",
+  "Cancel": "Annuler",
+  "EdITaskTitle": "Modifier la tâche",
+  "Edit": "Modifier",
+  "Delete": "Supprimer"
+}

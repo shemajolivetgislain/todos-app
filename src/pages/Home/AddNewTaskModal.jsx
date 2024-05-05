@@ -6,6 +6,7 @@ import Button from "../../components/buttons";
 import { useCreateTodoMutation } from "../../app/api";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const AddNewTaskModal = ({ closeModal }) => {
   const {
@@ -14,6 +15,7 @@ const AddNewTaskModal = ({ closeModal }) => {
     // watch,
     formState: { errors },
   } = useForm();
+  const { t } = useTranslation();
 
   const [
     createTodo,
@@ -55,7 +57,7 @@ const AddNewTaskModal = ({ closeModal }) => {
   ]);
   return (
     <Modal
-      title={"Add new task"}
+      title={t("AddNewtaskTitle")}
       toggleFunction={closeModal}
       className={"!h-[37%]"}
     >
@@ -70,7 +72,11 @@ const AddNewTaskModal = ({ closeModal }) => {
           rules={{ required: "To dos is required" }}
           render={({ field }) => (
             <>
-              <Input {...field} type="text" placeholder="Add your task" />
+              <Input
+                {...field}
+                type="text"
+                placeholder={t("AddTaskPlaceholder")}
+              />
               {errors.todo && (
                 <p className="text-red-600 text-[13px]">
                   {errors.todo.message}
@@ -84,12 +90,12 @@ const AddNewTaskModal = ({ closeModal }) => {
             submit
             className=" !py-1 !text-lg"
             primary
-            value={isCreatingTodoLoading ? "Adding ..." : "Add todo"}
+            value={isCreatingTodoLoading ? "Adding ..." : t("AddTaskButton")}
           />
           <Button
             className="!bg-white !border-2 !border-red-700 !text-red-700 !py-1 !text-lg hover:!bg-red-700 hover:!text-whiteTheme-secondColor dark:!bg-red-900 dark:!text-darkTheme-textColor"
             onClick={closeModal}
-            value={"cancel"}
+            value={t("Cancel")}
           />
         </div>
       </form>

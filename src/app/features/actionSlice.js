@@ -5,6 +5,7 @@ const todosActionsSlice = createSlice({
   initialState: {
     openTodosAction: false,
     languageChange: false,
+    
   },
   reducers: {
     setOpenTodosAction: (state, action) => {

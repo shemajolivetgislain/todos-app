@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
 import moment from "moment";
+import { useTranslation } from "react-i18next";
 
 const DashboardHeader = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const { t } = useTranslation();
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTime(new Date());
-    }, 1000); // Update every second
+    }, 1000);
 
-    return () => clearInterval(interval); // Clean up the interval
+    return () => clearInterval(interval);
   }, []);
-  // Get date and time separately
+
   const formattedDate = currentTime.toLocaleDateString();
   const formattedTime = currentTime.toLocaleTimeString();
 
@@ -19,7 +21,7 @@ const DashboardHeader = () => {
     <section className="w-full ">
       <header className="flex items-center justify-between max-sm:flex-col max-sm:items-start max-sm:gap-2">
         <h1 className="text-3xl max-sm:text-xl font-bold text-whiteTheme-primaryColor">
-          Todos App Site
+          {t("title")}
         </h1>
         {/* Display current time and date */}
         <span className="flex gap-3 items-center bg-purple-100  rounded-md p-3 dark:bg-darkTheme-secondColor dark:text-darkTheme-textColor">

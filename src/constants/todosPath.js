@@ -1,9 +1,11 @@
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const TodosLink = () => {
   const { allTodosSize, incompleteTodosSize, completeTodosSize } = useSelector(
     (state) => state.todos
   );
+  const { t } = useTranslation();
 
   const totalTodos = allTodosSize;
   const incompleteTodos = incompleteTodosSize;
@@ -12,17 +14,17 @@ const TodosLink = () => {
   const todosPathLink = {
     links: [
       {
-        title: "All Tasks",
+        title: t("AllTasks"),
         path: "all",
         size: totalTodos,
       },
       {
-        title: "To do",
+        title: t("ToDoTasks"),
         path: "todo",
         size: incompleteTodos,
       },
       {
-        title: "Completed",
+        title: t("CompletedTasks"),
         path: "completed",
         size: completeTodos,
       },

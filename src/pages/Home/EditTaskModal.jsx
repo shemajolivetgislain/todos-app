@@ -7,9 +7,10 @@ import { useUpdateTodoMutation } from "../../app/api";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
-// import ButtonLoader from "../../components/loader/Loaders";
+import { useTranslation } from "react-i18next";
 
 const EditTaskModal = ({ closeModal }) => {
+  const { t } = useTranslation();
   const { singleTodo } = useSelector((state) => state.todos);
   const {
     control,
@@ -50,7 +51,7 @@ const EditTaskModal = ({ closeModal }) => {
 
   return (
     <Modal
-      title={"Edit New Task"}
+      title={t("EdITaskTitle")}
       toggleFunction={closeModal}
       className={"!h-[37%]"}
     >
@@ -80,12 +81,12 @@ const EditTaskModal = ({ closeModal }) => {
             submit
             className=" !py-1 !text-lg"
             primary
-            value={isEditToLoading ? "Updating ..." : "Edit todo"}
+            value={isEditToLoading ? "Updating ..." : t("EditTaskButton")}
           />
           <Button
             className="!bg-white !border-2 !border-red-700 !text-red-700 !py-1 !text-lg hover:!bg-red-700 hover:!text-whiteTheme-secondColor dark:!bg-red-900 dark:!text-darkTheme-textColor"
             onClick={closeModal}
-            value={"cancel"}
+            value={t("Cancel")}
           />
         </div>
       </form>
